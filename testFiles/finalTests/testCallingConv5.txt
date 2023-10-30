@@ -1,0 +1,36 @@
+void f () {
+myprinter
+    //( 0 , 1 );
+    ( 6 , 3 );
+}
+
+int fkk(int a, int b) {
+    return b;
+    //halt();
+}
+
+
+void myprinter
+    ( int a0
+    , int a1
+    ) {
+
+    myprinter1(a0,fkk(a0,a1), fkk(a1,a0));
+    //myprinter1(a0);
+}
+
+//void myprinter1(int a0){
+//    printi(a0);
+//    //printi(a1);
+//    //printi(a2);
+//}
+
+void myprinter1(int a0, int a1, int a2){
+    printi(a0);
+    printi(a1);
+    printi(a2);
+}
+
+main(){
+    f();
+}

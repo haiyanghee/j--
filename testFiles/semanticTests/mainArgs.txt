@@ -1,0 +1,1 @@
+main(int a){}//this should be a parse error

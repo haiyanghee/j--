@@ -1,0 +1,15 @@
+//testing sequence of semi colons
+void g(){ }
+void h(int a){ }
+
+f(){
+    g(a,b,c);
+    int a;;;;;;;
+    if(1);;;;;
+
+    if(1){}
+    else;;;;;
+
+    if(1){;;}
+    else;;;;;{;;}
+}

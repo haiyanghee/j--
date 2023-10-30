@@ -1,0 +1,10 @@
+main(){
+    int a;
+    //undefined variable error, and statement exp error
+    b+1; 
+    //below are some more statement exp errors
+    -1;
+    !true;
+    3+1;
+    b = 1;
+}

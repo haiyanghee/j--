@@ -1,0 +1,17 @@
+int f(){ return 1;}
+void g(){}
+main(){
+    boolean b;
+    b= 2<true;
+    b= 2<=3>4; //left side should be bool instead of int
+    b= 2>=3||4; //right side should be int
+    b= 2<3&&f(); //ok
+    b= 2<3 != g(); //right side is void, bad
+    b= f() == 1; //ok
+    b= g() == g(); //cannot compare type void
+    b= "a">= 1; //bad
+    b= 3  > 1; //ok
+    b= !true; //ok
+    b= !1; //bad
+
+}

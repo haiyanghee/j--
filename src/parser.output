@@ -1,0 +1,2119 @@
+Terminals unused in grammar
+
+    "mainVoid"
+
+
+State 123 conflicts: 1 shift/reduce
+
+
+Grammar
+
+    0 $accept: start $end
+
+    1 start: ε
+    2      | globaldeclarationRev $end
+
+    3 literal: "Number"
+    4        | STRING
+    5        | "true"
+    6        | "false"
+
+    7 type: "boolean"
+    8     | "int"
+
+    9 globaldeclarationRev: globaldeclarations
+
+   10 globaldeclarations: globaldeclaration
+   11                   | globaldeclarations globaldeclaration
+
+   12 globaldeclaration: variabledeclaration
+   13                  | functiondeclaration
+   14                  | mainfunctiondeclaration
+
+   15 variabledeclaration: type identifier ";"
+
+   16 identifier: "Identifier"
+
+   17 functiondeclaration: functionheader block
+
+   18 functionheader: type functiondeclarator
+   19               | "void" functiondeclarator
+
+   20 functiondeclarator: identifier "(" functiondeclaratorPrime
+
+   21 functiondeclaratorPrime: formalparameterlistRev ")"
+   22                        | ")"
+
+   23 formalparameterlistRev: formalparameterlist
+
+   24 formalparameterlist: formalparameter
+   25                    | formalparameterlist "," formalparameter
+
+   26 formalparameter: type identifier
+
+   27 mainfunctiondeclaration: mainfunctiondeclarator block
+
+   28 mainfunctiondeclarator: identifier "(" ")"
+
+   29 block: "{" blockPrime
+
+   30 blockPrime: "}"
+   31           | blockstatements "}"
+
+   32 blockstatements: blockstatement
+   33                | ";"
+   34                | blockstatements blockstatement
+   35                | blockstatements ";"
+
+   36 blockstatement: variabledeclaration
+   37               | statement
+
+   38 statement: block
+   39          | statementexpression ";"
+   40          | "break" ";"
+   41          | "return" statementReturn
+   42          | "if" "(" expression ")" statementIf1
+   43          | "while" "(" expression ")" statementIf3
+
+   44 statementReturn: ";"
+   45                | expression ";"
+
+   46 statementIf1: statementIf3 statementIf2
+
+   47 statementIf2: ε
+   48             | "else" statementIf3
+
+   49 statementIf3: ";"
+   50             | statement
+
+   51 statementexpression: expression
+
+   52 argumentlist: expression
+   53             | argumentlist "," expression
+
+   54 argumentlistRev: argumentlist
+
+   55 functioninvocation: identifier "(" argumentlistRev ")"
+   56                   | identifier "(" ")"
+
+   57 expression: identifier "=" expression
+   58           | expression "||" expression
+   59           | expression "&&" expression
+   60           | expression "==" expression
+   61           | expression "!=" expression
+   62           | expression "<" expression
+   63           | expression ">" expression
+   64           | expression "<=" expression
+   65           | expression ">=" expression
+   66           | expression "+" expression
+   67           | expression "-" expression
+   68           | expression "*" expression
+   69           | expression "/" expression
+   70           | expression "%" expression
+   71           | "-" expression
+   72           | "!" expression
+   73           | identifier
+   74           | literal
+   75           | "(" expression ")"
+   76           | functioninvocation
+
+
+Terminals, with rules where they appear
+
+    $end (0) 0 2
+    error (256)
+    "Identifier" <token> (258) 16
+    STRING <token> (259) 4
+    "Number" <token> (260) 3
+    "true" <token> (261) 5
+    "false" <token> (262) 6
+    "boolean" <token> (263) 7
+    "int" <token> (264) 8
+    "void" <token> (265) 19
+    "mainVoid" <token> (266)
+    "if" <data> (267) 42
+    "else" <data> (268) 48
+    "while" <data> (269) 43
+    "break" <data> (270) 40
+    "return" <data> (271) 41
+    "+" <data> (272) 66
+    "-" <data> (273) 67 71
+    "*" <data> (274) 68
+    "/" <data> (275) 69
+    "%" <data> (276) 70
+    "<" <data> (277) 62
+    ">" <data> (278) 63
+    "<=" <data> (279) 64
+    ">=" <data> (280) 65
+    "=" <data> (281) 57
+    "==" <data> (282) 60
+    "!=" <data> (283) 61
+    "!" <data> (284) 72
+    "&&" <data> (285) 59
+    "||" <data> (286) 58
+    "(" <data> (287) 20 28 42 43 55 56 75
+    ")" <data> (288) 21 22 28 42 43 55 56 75
+    "{" <data> (289) 29
+    "}" <data> (290) 30 31
+    "," <data> (291) 25 53
+    ";" <data> (292) 15 33 35 39 40 44 45 49
+    UN_MINUS (293)
+
+
+Nonterminals, with rules where they appear
+
+    $accept (39)
+        on left: 0
+    start <topLvList> (40)
+        on left: 1 2
+        on right: 0
+    literal <token> (41)
+        on left: 3 4 5 6
+        on right: 74
+    type <token> (42)
+        on left: 7 8
+        on right: 15 18 26
+    globaldeclarationRev <topLvList> (43)
+        on left: 9
+        on right: 2
+    globaldeclarations <topLvList> (44)
+        on left: 10 11
+        on right: 9 11
+    globaldeclaration <topLvList> (45)
+        on left: 12 13 14
+        on right: 10 11
+    variabledeclaration <varDecl> (46)
+        on left: 15
+        on right: 12 36
+    identifier <token> (47)
+        on left: 16
+        on right: 15 20 26 28 55 56 57 73
+    functiondeclaration <funcDecl> (48)
+        on left: 17
+        on right: 13
+    functionheader <funcHeader> (49)
+        on left: 18 19
+        on right: 17
+    functiondeclarator <funcDeclarator> (50)
+        on left: 20
+        on right: 18 19
+    functiondeclaratorPrime <formalParamList> (51)
+        on left: 21 22
+        on right: 20
+    formalparameterlistRev <formalParamList> (52)
+        on left: 23
+        on right: 21
+    formalparameterlist <formalParamList> (53)
+        on left: 24 25
+        on right: 23 25
+    formalparameter <varDecl> (54)
+        on left: 26
+        on right: 24 25
+    mainfunctiondeclaration <funcDecl> (55)
+        on left: 27
+        on right: 14
+    mainfunctiondeclarator <funcDeclarator> (56)
+        on left: 28
+        on right: 27
+    block <blockStatem> (57)
+        on left: 29
+        on right: 17 27 38
+    blockPrime <blockStatem> (58)
+        on left: 30 31
+        on right: 29
+    blockstatements <blockStatem> (59)
+        on left: 32 33 34 35
+        on right: 31 34 35
+    blockstatement <blockStatem> (60)
+        on left: 36 37
+        on right: 32 34
+    statement <statement> (61)
+        on left: 38 39 40 41 42 43
+        on right: 37 50
+    statementReturn <exp> (62)
+        on left: 44 45
+        on right: 41
+    statementIf1 <ifStatementData> (63)
+        on left: 46
+        on right: 42
+    statementIf2 <statement> (64)
+        on left: 47 48
+        on right: 46
+    statementIf3 <statement> (65)
+        on left: 49 50
+        on right: 43 46 48
+    statementexpression <exp> (66)
+        on left: 51
+        on right: 39
+    argumentlist <funcArgList> (67)
+        on left: 52 53
+        on right: 53 54
+    argumentlistRev <funcArgList> (68)
+        on left: 54
+        on right: 55
+    functioninvocation <funcInv> (69)
+        on left: 55 56
+        on right: 76
+    expression <exp> (70)
+        on left: 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76
+        on right: 42 43 45 51 52 53 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 75
+
+
+State 0
+
+    0 $accept: • start $end
+
+    "Identifier"  shift, and go to state 1
+    "boolean"     shift, and go to state 2
+    "int"         shift, and go to state 3
+    "void"        shift, and go to state 4
+
+    $default  reduce using rule 1 (start)
+
+    start                    go to state 5
+    type                     go to state 6
+    globaldeclarationRev     go to state 7
+    globaldeclarations       go to state 8
+    globaldeclaration        go to state 9
+    variabledeclaration      go to state 10
+    identifier               go to state 11
+    functiondeclaration      go to state 12
+    functionheader           go to state 13
+    mainfunctiondeclaration  go to state 14
+    mainfunctiondeclarator   go to state 15
+
+
+State 1
+
+   16 identifier: "Identifier" •
+
+    $default  reduce using rule 16 (identifier)
+
+
+State 2
+
+    7 type: "boolean" •
+
+    $default  reduce using rule 7 (type)
+
+
+State 3
+
+    8 type: "int" •
+
+    $default  reduce using rule 8 (type)
+
+
+State 4
+
+   19 functionheader: "void" • functiondeclarator
+
+    "Identifier"  shift, and go to state 1
+
+    identifier          go to state 16
+    functiondeclarator  go to state 17
+
+
+State 5
+
+    0 $accept: start • $end
+
+    $end  shift, and go to state 18
+
+
+State 6
+
+   15 variabledeclaration: type • identifier ";"
+   18 functionheader: type • functiondeclarator
+
+    "Identifier"  shift, and go to state 1
+
+    identifier          go to state 19
+    functiondeclarator  go to state 20
+
+
+State 7
+
+    2 start: globaldeclarationRev • $end
+
+    $end  shift, and go to state 21
+
+
+State 8
+
+    9 globaldeclarationRev: globaldeclarations •
+   11 globaldeclarations: globaldeclarations • globaldeclaration
+
+    "Identifier"  shift, and go to state 1
+    "boolean"     shift, and go to state 2
+    "int"         shift, and go to state 3
+    "void"        shift, and go to state 4
+
+    $default  reduce using rule 9 (globaldeclarationRev)
+
+    type                     go to state 6
+    globaldeclaration        go to state 22
+    variabledeclaration      go to state 10
+    identifier               go to state 11
+    functiondeclaration      go to state 12
+    functionheader           go to state 13
+    mainfunctiondeclaration  go to state 14
+    mainfunctiondeclarator   go to state 15
+
+
+State 9
+
+   10 globaldeclarations: globaldeclaration •
+
+    $default  reduce using rule 10 (globaldeclarations)
+
+
+State 10
+
+   12 globaldeclaration: variabledeclaration •
+
+    $default  reduce using rule 12 (globaldeclaration)
+
+
+State 11
+
+   28 mainfunctiondeclarator: identifier • "(" ")"
+
+    "("  shift, and go to state 23
+
+
+State 12
+
+   13 globaldeclaration: functiondeclaration •
+
+    $default  reduce using rule 13 (globaldeclaration)
+
+
+State 13
+
+   17 functiondeclaration: functionheader • block
+
+    "{"  shift, and go to state 24
+
+    block  go to state 25
+
+
+State 14
+
+   14 globaldeclaration: mainfunctiondeclaration •
+
+    $default  reduce using rule 14 (globaldeclaration)
+
+
+State 15
+
+   27 mainfunctiondeclaration: mainfunctiondeclarator • block
+
+    "{"  shift, and go to state 24
+
+    block  go to state 26
+
+
+State 16
+
+   20 functiondeclarator: identifier • "(" functiondeclaratorPrime
+
+    "("  shift, and go to state 27
+
+
+State 17
+
+   19 functionheader: "void" functiondeclarator •
+
+    $default  reduce using rule 19 (functionheader)
+
+
+State 18
+
+    0 $accept: start $end •
+
+    $default  accept
+
+
+State 19
+
+   15 variabledeclaration: type identifier • ";"
+   20 functiondeclarator: identifier • "(" functiondeclaratorPrime
+
+    "("  shift, and go to state 27
+    ";"  shift, and go to state 28
+
+
+State 20
+
+   18 functionheader: type functiondeclarator •
+
+    $default  reduce using rule 18 (functionheader)
+
+
+State 21
+
+    2 start: globaldeclarationRev $end •
+
+    $default  reduce using rule 2 (start)
+
+
+State 22
+
+   11 globaldeclarations: globaldeclarations globaldeclaration •
+
+    $default  reduce using rule 11 (globaldeclarations)
+
+
+State 23
+
+   28 mainfunctiondeclarator: identifier "(" • ")"
+
+    ")"  shift, and go to state 29
+
+
+State 24
+
+   29 block: "{" • blockPrime
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "boolean"     shift, and go to state 2
+    "int"         shift, and go to state 3
+    "if"          shift, and go to state 34
+    "while"       shift, and go to state 35
+    "break"       shift, and go to state 36
+    "return"      shift, and go to state 37
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+    "{"           shift, and go to state 24
+    "}"           shift, and go to state 41
+    ";"           shift, and go to state 42
+
+    literal              go to state 43
+    type                 go to state 44
+    variabledeclaration  go to state 45
+    identifier           go to state 46
+    block                go to state 47
+    blockPrime           go to state 48
+    blockstatements      go to state 49
+    blockstatement       go to state 50
+    statement            go to state 51
+    statementexpression  go to state 52
+    functioninvocation   go to state 53
+    expression           go to state 54
+
+
+State 25
+
+   17 functiondeclaration: functionheader block •
+
+    $default  reduce using rule 17 (functiondeclaration)
+
+
+State 26
+
+   27 mainfunctiondeclaration: mainfunctiondeclarator block •
+
+    $default  reduce using rule 27 (mainfunctiondeclaration)
+
+
+State 27
+
+   20 functiondeclarator: identifier "(" • functiondeclaratorPrime
+
+    "boolean"  shift, and go to state 2
+    "int"      shift, and go to state 3
+    ")"        shift, and go to state 55
+
+    type                     go to state 56
+    functiondeclaratorPrime  go to state 57
+    formalparameterlistRev   go to state 58
+    formalparameterlist      go to state 59
+    formalparameter          go to state 60
+
+
+State 28
+
+   15 variabledeclaration: type identifier ";" •
+
+    $default  reduce using rule 15 (variabledeclaration)
+
+
+State 29
+
+   28 mainfunctiondeclarator: identifier "(" ")" •
+
+    $default  reduce using rule 28 (mainfunctiondeclarator)
+
+
+State 30
+
+    4 literal: STRING •
+
+    $default  reduce using rule 4 (literal)
+
+
+State 31
+
+    3 literal: "Number" •
+
+    $default  reduce using rule 3 (literal)
+
+
+State 32
+
+    5 literal: "true" •
+
+    $default  reduce using rule 5 (literal)
+
+
+State 33
+
+    6 literal: "false" •
+
+    $default  reduce using rule 6 (literal)
+
+
+State 34
+
+   42 statement: "if" • "(" expression ")" statementIf1
+
+    "("  shift, and go to state 61
+
+
+State 35
+
+   43 statement: "while" • "(" expression ")" statementIf3
+
+    "("  shift, and go to state 62
+
+
+State 36
+
+   40 statement: "break" • ";"
+
+    ";"  shift, and go to state 63
+
+
+State 37
+
+   41 statement: "return" • statementReturn
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+    ";"           shift, and go to state 64
+
+    literal             go to state 43
+    identifier          go to state 46
+    statementReturn     go to state 65
+    functioninvocation  go to state 53
+    expression          go to state 66
+
+
+State 38
+
+   71 expression: "-" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 67
+
+
+State 39
+
+   72 expression: "!" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 68
+
+
+State 40
+
+   75 expression: "(" • expression ")"
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 69
+
+
+State 41
+
+   30 blockPrime: "}" •
+
+    $default  reduce using rule 30 (blockPrime)
+
+
+State 42
+
+   33 blockstatements: ";" •
+
+    $default  reduce using rule 33 (blockstatements)
+
+
+State 43
+
+   74 expression: literal •
+
+    $default  reduce using rule 74 (expression)
+
+
+State 44
+
+   15 variabledeclaration: type • identifier ";"
+
+    "Identifier"  shift, and go to state 1
+
+    identifier  go to state 70
+
+
+State 45
+
+   36 blockstatement: variabledeclaration •
+
+    $default  reduce using rule 36 (blockstatement)
+
+
+State 46
+
+   55 functioninvocation: identifier • "(" argumentlistRev ")"
+   56                   | identifier • "(" ")"
+   57 expression: identifier • "=" expression
+   73           | identifier •
+
+    "="  shift, and go to state 71
+    "("  shift, and go to state 72
+
+    $default  reduce using rule 73 (expression)
+
+
+State 47
+
+   38 statement: block •
+
+    $default  reduce using rule 38 (statement)
+
+
+State 48
+
+   29 block: "{" blockPrime •
+
+    $default  reduce using rule 29 (block)
+
+
+State 49
+
+   31 blockPrime: blockstatements • "}"
+   34 blockstatements: blockstatements • blockstatement
+   35                | blockstatements • ";"
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "boolean"     shift, and go to state 2
+    "int"         shift, and go to state 3
+    "if"          shift, and go to state 34
+    "while"       shift, and go to state 35
+    "break"       shift, and go to state 36
+    "return"      shift, and go to state 37
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+    "{"           shift, and go to state 24
+    "}"           shift, and go to state 73
+    ";"           shift, and go to state 74
+
+    literal              go to state 43
+    type                 go to state 44
+    variabledeclaration  go to state 45
+    identifier           go to state 46
+    block                go to state 47
+    blockstatement       go to state 75
+    statement            go to state 51
+    statementexpression  go to state 52
+    functioninvocation   go to state 53
+    expression           go to state 54
+
+
+State 50
+
+   32 blockstatements: blockstatement •
+
+    $default  reduce using rule 32 (blockstatements)
+
+
+State 51
+
+   37 blockstatement: statement •
+
+    $default  reduce using rule 37 (blockstatement)
+
+
+State 52
+
+   39 statement: statementexpression • ";"
+
+    ";"  shift, and go to state 76
+
+
+State 53
+
+   76 expression: functioninvocation •
+
+    $default  reduce using rule 76 (expression)
+
+
+State 54
+
+   51 statementexpression: expression •
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "+"   shift, and go to state 77
+    "-"   shift, and go to state 78
+    "*"   shift, and go to state 79
+    "/"   shift, and go to state 80
+    "%"   shift, and go to state 81
+    "<"   shift, and go to state 82
+    ">"   shift, and go to state 83
+    "<="  shift, and go to state 84
+    ">="  shift, and go to state 85
+    "=="  shift, and go to state 86
+    "!="  shift, and go to state 87
+    "&&"  shift, and go to state 88
+    "||"  shift, and go to state 89
+
+    $default  reduce using rule 51 (statementexpression)
+
+
+State 55
+
+   22 functiondeclaratorPrime: ")" •
+
+    $default  reduce using rule 22 (functiondeclaratorPrime)
+
+
+State 56
+
+   26 formalparameter: type • identifier
+
+    "Identifier"  shift, and go to state 1
+
+    identifier  go to state 90
+
+
+State 57
+
+   20 functiondeclarator: identifier "(" functiondeclaratorPrime •
+
+    $default  reduce using rule 20 (functiondeclarator)
+
+
+State 58
+
+   21 functiondeclaratorPrime: formalparameterlistRev • ")"
+
+    ")"  shift, and go to state 91
+
+
+State 59
+
+   23 formalparameterlistRev: formalparameterlist •
+   25 formalparameterlist: formalparameterlist • "," formalparameter
+
+    ","  shift, and go to state 92
+
+    $default  reduce using rule 23 (formalparameterlistRev)
+
+
+State 60
+
+   24 formalparameterlist: formalparameter •
+
+    $default  reduce using rule 24 (formalparameterlist)
+
+
+State 61
+
+   42 statement: "if" "(" • expression ")" statementIf1
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 93
+
+
+State 62
+
+   43 statement: "while" "(" • expression ")" statementIf3
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 94
+
+
+State 63
+
+   40 statement: "break" ";" •
+
+    $default  reduce using rule 40 (statement)
+
+
+State 64
+
+   44 statementReturn: ";" •
+
+    $default  reduce using rule 44 (statementReturn)
+
+
+State 65
+
+   41 statement: "return" statementReturn •
+
+    $default  reduce using rule 41 (statement)
+
+
+State 66
+
+   45 statementReturn: expression • ";"
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "+"   shift, and go to state 77
+    "-"   shift, and go to state 78
+    "*"   shift, and go to state 79
+    "/"   shift, and go to state 80
+    "%"   shift, and go to state 81
+    "<"   shift, and go to state 82
+    ">"   shift, and go to state 83
+    "<="  shift, and go to state 84
+    ">="  shift, and go to state 85
+    "=="  shift, and go to state 86
+    "!="  shift, and go to state 87
+    "&&"  shift, and go to state 88
+    "||"  shift, and go to state 89
+    ";"   shift, and go to state 95
+
+
+State 67
+
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+   71           | "-" expression •
+
+    $default  reduce using rule 71 (expression)
+
+
+State 68
+
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+   72           | "!" expression •
+
+    $default  reduce using rule 72 (expression)
+
+
+State 69
+
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+   75           | "(" expression • ")"
+
+    "+"   shift, and go to state 77
+    "-"   shift, and go to state 78
+    "*"   shift, and go to state 79
+    "/"   shift, and go to state 80
+    "%"   shift, and go to state 81
+    "<"   shift, and go to state 82
+    ">"   shift, and go to state 83
+    "<="  shift, and go to state 84
+    ">="  shift, and go to state 85
+    "=="  shift, and go to state 86
+    "!="  shift, and go to state 87
+    "&&"  shift, and go to state 88
+    "||"  shift, and go to state 89
+    ")"   shift, and go to state 96
+
+
+State 70
+
+   15 variabledeclaration: type identifier • ";"
+
+    ";"  shift, and go to state 28
+
+
+State 71
+
+   57 expression: identifier "=" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 97
+
+
+State 72
+
+   55 functioninvocation: identifier "(" • argumentlistRev ")"
+   56                   | identifier "(" • ")"
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+    ")"           shift, and go to state 98
+
+    literal             go to state 43
+    identifier          go to state 46
+    argumentlist        go to state 99
+    argumentlistRev     go to state 100
+    functioninvocation  go to state 53
+    expression          go to state 101
+
+
+State 73
+
+   31 blockPrime: blockstatements "}" •
+
+    $default  reduce using rule 31 (blockPrime)
+
+
+State 74
+
+   35 blockstatements: blockstatements ";" •
+
+    $default  reduce using rule 35 (blockstatements)
+
+
+State 75
+
+   34 blockstatements: blockstatements blockstatement •
+
+    $default  reduce using rule 34 (blockstatements)
+
+
+State 76
+
+   39 statement: statementexpression ";" •
+
+    $default  reduce using rule 39 (statement)
+
+
+State 77
+
+   66 expression: expression "+" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 102
+
+
+State 78
+
+   67 expression: expression "-" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 103
+
+
+State 79
+
+   68 expression: expression "*" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 104
+
+
+State 80
+
+   69 expression: expression "/" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 105
+
+
+State 81
+
+   70 expression: expression "%" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 106
+
+
+State 82
+
+   62 expression: expression "<" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 107
+
+
+State 83
+
+   63 expression: expression ">" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 108
+
+
+State 84
+
+   64 expression: expression "<=" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 109
+
+
+State 85
+
+   65 expression: expression ">=" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 110
+
+
+State 86
+
+   60 expression: expression "==" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 111
+
+
+State 87
+
+   61 expression: expression "!=" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 112
+
+
+State 88
+
+   59 expression: expression "&&" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 113
+
+
+State 89
+
+   58 expression: expression "||" • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 114
+
+
+State 90
+
+   26 formalparameter: type identifier •
+
+    $default  reduce using rule 26 (formalparameter)
+
+
+State 91
+
+   21 functiondeclaratorPrime: formalparameterlistRev ")" •
+
+    $default  reduce using rule 21 (functiondeclaratorPrime)
+
+
+State 92
+
+   25 formalparameterlist: formalparameterlist "," • formalparameter
+
+    "boolean"  shift, and go to state 2
+    "int"      shift, and go to state 3
+
+    type             go to state 56
+    formalparameter  go to state 115
+
+
+State 93
+
+   42 statement: "if" "(" expression • ")" statementIf1
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "+"   shift, and go to state 77
+    "-"   shift, and go to state 78
+    "*"   shift, and go to state 79
+    "/"   shift, and go to state 80
+    "%"   shift, and go to state 81
+    "<"   shift, and go to state 82
+    ">"   shift, and go to state 83
+    "<="  shift, and go to state 84
+    ">="  shift, and go to state 85
+    "=="  shift, and go to state 86
+    "!="  shift, and go to state 87
+    "&&"  shift, and go to state 88
+    "||"  shift, and go to state 89
+    ")"   shift, and go to state 116
+
+
+State 94
+
+   43 statement: "while" "(" expression • ")" statementIf3
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "+"   shift, and go to state 77
+    "-"   shift, and go to state 78
+    "*"   shift, and go to state 79
+    "/"   shift, and go to state 80
+    "%"   shift, and go to state 81
+    "<"   shift, and go to state 82
+    ">"   shift, and go to state 83
+    "<="  shift, and go to state 84
+    ">="  shift, and go to state 85
+    "=="  shift, and go to state 86
+    "!="  shift, and go to state 87
+    "&&"  shift, and go to state 88
+    "||"  shift, and go to state 89
+    ")"   shift, and go to state 117
+
+
+State 95
+
+   45 statementReturn: expression ";" •
+
+    $default  reduce using rule 45 (statementReturn)
+
+
+State 96
+
+   75 expression: "(" expression ")" •
+
+    $default  reduce using rule 75 (expression)
+
+
+State 97
+
+   57 expression: identifier "=" expression •
+   58           | expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "+"   shift, and go to state 77
+    "-"   shift, and go to state 78
+    "*"   shift, and go to state 79
+    "/"   shift, and go to state 80
+    "%"   shift, and go to state 81
+    "<"   shift, and go to state 82
+    ">"   shift, and go to state 83
+    "<="  shift, and go to state 84
+    ">="  shift, and go to state 85
+    "=="  shift, and go to state 86
+    "!="  shift, and go to state 87
+    "&&"  shift, and go to state 88
+    "||"  shift, and go to state 89
+
+    $default  reduce using rule 57 (expression)
+
+
+State 98
+
+   56 functioninvocation: identifier "(" ")" •
+
+    $default  reduce using rule 56 (functioninvocation)
+
+
+State 99
+
+   53 argumentlist: argumentlist • "," expression
+   54 argumentlistRev: argumentlist •
+
+    ","  shift, and go to state 118
+
+    $default  reduce using rule 54 (argumentlistRev)
+
+
+State 100
+
+   55 functioninvocation: identifier "(" argumentlistRev • ")"
+
+    ")"  shift, and go to state 119
+
+
+State 101
+
+   52 argumentlist: expression •
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "+"   shift, and go to state 77
+    "-"   shift, and go to state 78
+    "*"   shift, and go to state 79
+    "/"   shift, and go to state 80
+    "%"   shift, and go to state 81
+    "<"   shift, and go to state 82
+    ">"   shift, and go to state 83
+    "<="  shift, and go to state 84
+    ">="  shift, and go to state 85
+    "=="  shift, and go to state 86
+    "!="  shift, and go to state 87
+    "&&"  shift, and go to state 88
+    "||"  shift, and go to state 89
+
+    $default  reduce using rule 52 (argumentlist)
+
+
+State 102
+
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   66           | expression "+" expression •
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "*"  shift, and go to state 79
+    "/"  shift, and go to state 80
+    "%"  shift, and go to state 81
+
+    $default  reduce using rule 66 (expression)
+
+
+State 103
+
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   67           | expression "-" expression •
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "*"  shift, and go to state 79
+    "/"  shift, and go to state 80
+    "%"  shift, and go to state 81
+
+    $default  reduce using rule 67 (expression)
+
+
+State 104
+
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   68           | expression "*" expression •
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    $default  reduce using rule 68 (expression)
+
+
+State 105
+
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   69           | expression "/" expression •
+   70           | expression • "%" expression
+
+    $default  reduce using rule 69 (expression)
+
+
+State 106
+
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+   70           | expression "%" expression •
+
+    $default  reduce using rule 70 (expression)
+
+
+State 107
+
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   62           | expression "<" expression •
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "+"  shift, and go to state 77
+    "-"  shift, and go to state 78
+    "*"  shift, and go to state 79
+    "/"  shift, and go to state 80
+    "%"  shift, and go to state 81
+
+    $default  reduce using rule 62 (expression)
+
+
+State 108
+
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   63           | expression ">" expression •
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "+"  shift, and go to state 77
+    "-"  shift, and go to state 78
+    "*"  shift, and go to state 79
+    "/"  shift, and go to state 80
+    "%"  shift, and go to state 81
+
+    $default  reduce using rule 63 (expression)
+
+
+State 109
+
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   64           | expression "<=" expression •
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "+"  shift, and go to state 77
+    "-"  shift, and go to state 78
+    "*"  shift, and go to state 79
+    "/"  shift, and go to state 80
+    "%"  shift, and go to state 81
+
+    $default  reduce using rule 64 (expression)
+
+
+State 110
+
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   65           | expression ">=" expression •
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "+"  shift, and go to state 77
+    "-"  shift, and go to state 78
+    "*"  shift, and go to state 79
+    "/"  shift, and go to state 80
+    "%"  shift, and go to state 81
+
+    $default  reduce using rule 65 (expression)
+
+
+State 111
+
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   60           | expression "==" expression •
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "+"   shift, and go to state 77
+    "-"   shift, and go to state 78
+    "*"   shift, and go to state 79
+    "/"   shift, and go to state 80
+    "%"   shift, and go to state 81
+    "<"   shift, and go to state 82
+    ">"   shift, and go to state 83
+    "<="  shift, and go to state 84
+    ">="  shift, and go to state 85
+
+    $default  reduce using rule 60 (expression)
+
+
+State 112
+
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   61           | expression "!=" expression •
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "+"   shift, and go to state 77
+    "-"   shift, and go to state 78
+    "*"   shift, and go to state 79
+    "/"   shift, and go to state 80
+    "%"   shift, and go to state 81
+    "<"   shift, and go to state 82
+    ">"   shift, and go to state 83
+    "<="  shift, and go to state 84
+    ">="  shift, and go to state 85
+
+    $default  reduce using rule 61 (expression)
+
+
+State 113
+
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   59           | expression "&&" expression •
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "+"   shift, and go to state 77
+    "-"   shift, and go to state 78
+    "*"   shift, and go to state 79
+    "/"   shift, and go to state 80
+    "%"   shift, and go to state 81
+    "<"   shift, and go to state 82
+    ">"   shift, and go to state 83
+    "<="  shift, and go to state 84
+    ">="  shift, and go to state 85
+    "=="  shift, and go to state 86
+    "!="  shift, and go to state 87
+
+    $default  reduce using rule 59 (expression)
+
+
+State 114
+
+   58 expression: expression • "||" expression
+   58           | expression "||" expression •
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "+"   shift, and go to state 77
+    "-"   shift, and go to state 78
+    "*"   shift, and go to state 79
+    "/"   shift, and go to state 80
+    "%"   shift, and go to state 81
+    "<"   shift, and go to state 82
+    ">"   shift, and go to state 83
+    "<="  shift, and go to state 84
+    ">="  shift, and go to state 85
+    "=="  shift, and go to state 86
+    "!="  shift, and go to state 87
+    "&&"  shift, and go to state 88
+
+    $default  reduce using rule 58 (expression)
+
+
+State 115
+
+   25 formalparameterlist: formalparameterlist "," formalparameter •
+
+    $default  reduce using rule 25 (formalparameterlist)
+
+
+State 116
+
+   42 statement: "if" "(" expression ")" • statementIf1
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "if"          shift, and go to state 34
+    "while"       shift, and go to state 35
+    "break"       shift, and go to state 36
+    "return"      shift, and go to state 37
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+    "{"           shift, and go to state 24
+    ";"           shift, and go to state 120
+
+    literal              go to state 43
+    identifier           go to state 46
+    block                go to state 47
+    statement            go to state 121
+    statementIf1         go to state 122
+    statementIf3         go to state 123
+    statementexpression  go to state 52
+    functioninvocation   go to state 53
+    expression           go to state 54
+
+
+State 117
+
+   43 statement: "while" "(" expression ")" • statementIf3
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "if"          shift, and go to state 34
+    "while"       shift, and go to state 35
+    "break"       shift, and go to state 36
+    "return"      shift, and go to state 37
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+    "{"           shift, and go to state 24
+    ";"           shift, and go to state 120
+
+    literal              go to state 43
+    identifier           go to state 46
+    block                go to state 47
+    statement            go to state 121
+    statementIf3         go to state 124
+    statementexpression  go to state 52
+    functioninvocation   go to state 53
+    expression           go to state 54
+
+
+State 118
+
+   53 argumentlist: argumentlist "," • expression
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+
+    literal             go to state 43
+    identifier          go to state 46
+    functioninvocation  go to state 53
+    expression          go to state 125
+
+
+State 119
+
+   55 functioninvocation: identifier "(" argumentlistRev ")" •
+
+    $default  reduce using rule 55 (functioninvocation)
+
+
+State 120
+
+   49 statementIf3: ";" •
+
+    $default  reduce using rule 49 (statementIf3)
+
+
+State 121
+
+   50 statementIf3: statement •
+
+    $default  reduce using rule 50 (statementIf3)
+
+
+State 122
+
+   42 statement: "if" "(" expression ")" statementIf1 •
+
+    $default  reduce using rule 42 (statement)
+
+
+State 123
+
+   46 statementIf1: statementIf3 • statementIf2
+
+    "else"  shift, and go to state 126
+
+    "else"    [reduce using rule 47 (statementIf2)]
+    $default  reduce using rule 47 (statementIf2)
+
+    statementIf2  go to state 127
+
+
+State 124
+
+   43 statement: "while" "(" expression ")" statementIf3 •
+
+    $default  reduce using rule 43 (statement)
+
+
+State 125
+
+   53 argumentlist: argumentlist "," expression •
+   58 expression: expression • "||" expression
+   59           | expression • "&&" expression
+   60           | expression • "==" expression
+   61           | expression • "!=" expression
+   62           | expression • "<" expression
+   63           | expression • ">" expression
+   64           | expression • "<=" expression
+   65           | expression • ">=" expression
+   66           | expression • "+" expression
+   67           | expression • "-" expression
+   68           | expression • "*" expression
+   69           | expression • "/" expression
+   70           | expression • "%" expression
+
+    "+"   shift, and go to state 77
+    "-"   shift, and go to state 78
+    "*"   shift, and go to state 79
+    "/"   shift, and go to state 80
+    "%"   shift, and go to state 81
+    "<"   shift, and go to state 82
+    ">"   shift, and go to state 83
+    "<="  shift, and go to state 84
+    ">="  shift, and go to state 85
+    "=="  shift, and go to state 86
+    "!="  shift, and go to state 87
+    "&&"  shift, and go to state 88
+    "||"  shift, and go to state 89
+
+    $default  reduce using rule 53 (argumentlist)
+
+
+State 126
+
+   48 statementIf2: "else" • statementIf3
+
+    "Identifier"  shift, and go to state 1
+    STRING        shift, and go to state 30
+    "Number"      shift, and go to state 31
+    "true"        shift, and go to state 32
+    "false"       shift, and go to state 33
+    "if"          shift, and go to state 34
+    "while"       shift, and go to state 35
+    "break"       shift, and go to state 36
+    "return"      shift, and go to state 37
+    "-"           shift, and go to state 38
+    "!"           shift, and go to state 39
+    "("           shift, and go to state 40
+    "{"           shift, and go to state 24
+    ";"           shift, and go to state 120
+
+    literal              go to state 43
+    identifier           go to state 46
+    block                go to state 47
+    statement            go to state 121
+    statementIf3         go to state 128
+    statementexpression  go to state 52
+    functioninvocation   go to state 53
+    expression           go to state 54
+
+
+State 127
+
+   46 statementIf1: statementIf3 statementIf2 •
+
+    $default  reduce using rule 46 (statementIf1)
+
+
+State 128
+
+   48 statementIf2: "else" statementIf3 •
+
+    $default  reduce using rule 48 (statementIf2)

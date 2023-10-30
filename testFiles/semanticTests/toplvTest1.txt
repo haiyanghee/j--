@@ -1,0 +1,13 @@
+int a;
+
+//this is a main function
+b(){}
+//this is another main function
+c(){}
+
+void d(){
+    //we call non-main functions
+    d();
+    //but we cannot call a main function
+    c();
+}

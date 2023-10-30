@@ -1,0 +1,20 @@
+void f(){
+    boolean mya1;
+    boolean mya2;
+    mya1 = false;
+    mya2 = true;
+
+    printb(mya1 && true);
+    printb(true && mya1);
+    printb(true && true);
+
+    prints("\n");
+
+    printb(mya2 || false);
+    printb(false || mya2);
+    printb(false || false);
+}
+
+main(){
+    f();
+}

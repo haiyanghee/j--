@@ -1,0 +1,35 @@
+int j;
+void i(){
+    //j=1;
+    int j;
+    j=1;
+}
+
+int halt(){
+    halt();
+    return 1;
+}
+
+int g(){
+    {
+        return 1;
+    }
+}
+
+int h(int a, boolean b){
+    //h(1);
+    //int c;
+    //c = -1;
+    //b = true == 1;
+    main();
+}
+
+main(){
+    int a;
+    int b;
+    if (a == b){
+
+    }
+    else;
+    return;
+}

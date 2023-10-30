@@ -1,0 +1,108 @@
+void f(){
+    prints("ff(true, false)\n");
+    printb(ff(true, false));
+    prints("\n");
+
+    prints("ff(false, true)\n");
+    printb(ff(false, true));
+    prints("\n");
+}
+
+boolean ff(boolean mya1, boolean mya2){
+    //mya1 = true;
+    //mya2 = false;
+
+    //if (true){
+    //    prints("inside 1st if\n");
+    //    if (false){ 
+    //        prints("inside 2nd if\n");
+    //    }
+    //    else{
+    //        prints("inside 2nd else\n");
+    //    }
+    //    prints("inside after 2nd if\n");
+    //}
+    //prints("inside after 1st if\n");
+
+    prints("------------1\n");
+    //go to inside
+    if (true){
+        prints("inside 1st if\n");
+    }
+    prints("after 1st if\n");
+
+    prints("------------2\n");
+    //go to after
+    if (false){
+        prints("inside 1st if\n");
+    }
+    prints("after 1st if\n");
+
+    if (mya2) return mya1;
+
+    prints("------------3\n");
+    //go to after
+    if (mya2 && g() && mya2 ){
+        g();
+    }
+    prints("after 1st if\n");
+
+    prints("------------4\n");
+    //go to inside if
+    if (true){
+        prints("inside 1st if\n");
+    }
+    else{
+        prints("inside 1st else\n");
+    }
+    prints("after 1st if\n");
+
+    prints("------------5\n");
+    //go to inside else
+    if (false){
+        prints("inside 1st if\n");
+    }
+    else{
+        prints("inside 1st else\n");
+    }
+    prints("after 1st if\n");
+
+
+    prints("------------6\n");
+    //go to 1st if, 2nd else, 3rd if, 4th else
+    if (mya1 || g()){
+        prints("inside 1st if\n");
+        if (mya2 && g()){ 
+            prints("inside 2nd if\n");
+        }
+        else{
+            prints("inside 2nd else\n");
+            if (mya1) prints("inside 3rd if\n");
+            if (mya2);
+            else prints("inside 4th else\n");
+        }
+        prints("after 2nd if\n");
+    }
+    else{
+        prints("inside 1st else\n");
+    }
+    prints("after 1st if\n");
+
+
+    prints("------------7\n");
+    //go to 1st if, 2nd else, 3rd if, 4th else
+    if (mya1 || mya2){
+        prints("inside 1st if\n");
+        return mya1;
+    }
+    prints("after 1st if\n");
+    return mya2;
+}
+
+boolean g(){
+    return g();
+}
+
+main(){
+    f();
+}

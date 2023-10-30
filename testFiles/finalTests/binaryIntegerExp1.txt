@@ -1,0 +1,153 @@
+void f(){
+    int a1;
+    int a2;
+    int a3;
+    int a4;
+    int a5;
+    int a6;
+    int a7;
+    int a8;
+    int a9;
+    int a10;
+    int a11;
+    int a12;
+    int a13;
+    int a14;
+    int a15;
+    int a16;
+    int a17;
+    int a18;
+    int a19;
+
+    int a;
+    int b;
+    int c;
+
+    int a20;
+    int a21;
+
+    //a = 7;
+    //b = 3;
+
+    ////printi(a);
+    ////printi(b);
+
+    //c = a+b;
+    //printi(c);
+    //prints("\n");
+
+    //c = a-b;
+    //printi(c);
+    //prints("\n");
+
+    //c = a*b;
+    //printi(c);
+    //prints("\n");
+    //
+    //c = a/b;
+    //printi(c);
+    //prints("\n");
+
+    //c = a%b;
+    //printi(c);
+    //prints("\n");
+
+    //boolean mybool;
+
+
+    //mybool = a>b;
+    //printb(mybool);
+    //prints("\n");
+
+    //mybool = a>=b;
+    //printb(mybool);
+    //prints("\n");
+
+    //mybool = a<b;
+    //printb(mybool);
+    //prints("\n");
+
+    //mybool = a<=b;
+    //printb(mybool);
+    //prints("\n");
+
+    //mybool = a==b;
+    //printb(mybool);
+    //prints("\n");
+
+    //mybool = a!=b;
+    //printb(mybool);
+    //prints("\n");
+
+    boolean mybool;
+    boolean mya1;
+    boolean mya2;
+
+    mybool=false;
+
+    mya1 = false;
+    mya2 = true;
+    mybool = mya1 || mya2;
+    printb(mybool);
+    prints("\n");
+
+    mya1 = true;
+    mya2 = false;
+    mybool = mya1 || mya2;
+    printb(mybool);
+    prints("\n");
+
+    mya1 = true;
+    mya2 = true;
+    mybool = mya1 || mya2;
+    printb(mybool);
+    prints("\n");
+
+    mya1 = false;
+    mya2 = false;
+    mybool = mya1 || mya2;
+    printb(mybool);
+    prints("\n");
+
+
+    mya1 = false;
+    mya2 = true;
+    mybool = mya1 && mya2;
+    printb(mybool);
+    prints("\n");
+
+    mya1 = true;
+    mya2 = false;
+    mybool = mya1 && mya2;
+    printb(mybool);
+    prints("\n");
+
+    mya1 = true;
+    mya2 = true;
+    mybool = mya1 && mya2;
+    printb(mybool);
+    prints("\n");
+
+    mya1 = false;
+    mya2 = false;
+    mybool = mya1 && mya2;
+    printb(mybool);
+    prints("\n");
+
+    a=69;
+    printi(a);
+    prints("before negate ^^\n");
+    a = -a;
+    printi(a);
+    prints("after negate ^^\n");
+
+    printb(mya1);
+    prints("before not ^^\n");
+    mya1 = !mya1;
+    printb(mya1);
+    prints("after not ^^\n");
+
+}
+main(){ 
+    f();
+}

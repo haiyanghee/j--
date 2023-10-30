@@ -1,0 +1,6 @@
+void f(){
+    prints("hello world");
+}
+main(){
+    f();
+}

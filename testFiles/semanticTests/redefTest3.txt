@@ -1,0 +1,12 @@
+int g(){
+    //we can decalre the name "g" here, even though "g" is also a function name
+    int g;
+    //however, when we look up from symbol table, we see that the 
+    //first occurence of "g" is a variable, not a function
+    g(); //this will error
+    g=2; //this is fine
+    g = h; //cannot treat function "h" as a variable
+    return 1;
+}
+int h() {return 1;}
+main(){}

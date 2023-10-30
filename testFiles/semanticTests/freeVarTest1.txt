@@ -1,0 +1,10 @@
+void b(){}
+main(){
+    int a;
+    //here "a" is a variable but a function invocation "a()" is called
+    //also "b" is a function but a variable invocation "b" is called
+    a = c + b + a();
+    e = 1;  //"e" is not defined yet!
+    int e;
+    c(a, 1); //undefined function 
+}

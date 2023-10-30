@@ -1,0 +1,29 @@
+int a;
+int b;
+
+//note we have an integer "a" on the top level, and one as an argument to f
+void f(int a){
+    //this "a" references to the function argument "a"
+    a = 1;
+    //we can redeclare "b" here
+    boolean b;
+    //the reference of "b" should be the inner one
+    b = false;
+}
+
+main(){
+    //this "a" references to the global variable "a"
+    a = 1;
+    {
+        //referencing inside blocks are fine
+        a = 2; 
+        {
+            {
+                a=3;
+            }
+            {
+                a=4;
+            }
+        }
+    }
+}

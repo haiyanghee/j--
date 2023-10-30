@@ -1,0 +1,31 @@
+
+//redefinition inside function argument
+void f(int a, int a){
+    //this is a redefinition of "a"!
+    //1st instance of "a" is in the function argument
+    int a;
+    boolean aa;
+    int aa; //another redefinition
+    {
+        //cannot declare local declaration inside an outermost block
+        int b;
+        {
+            int bb; //same here
+        }
+    }
+    if (true){
+        int c; //no
+    }
+    if (true){
+        int d; //no
+    }
+    else{
+        int e; //no
+    }
+    while(false){
+        int f; //no
+    }
+}
+
+main(){
+}

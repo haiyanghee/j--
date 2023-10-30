@@ -1,0 +1,7 @@
+//we can also override a builtin function!
+int printi(boolean a, int b){ return b;}
+main(){
+    boolean hello;
+    int world;
+    world = printi(hello, world);
+}

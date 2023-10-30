@@ -1,0 +1,20 @@
+//pre-defined library functions:
+//
+//int getchar()
+//void halt()	
+//void printb(boolean b)	
+//void printc(int c)	
+//void printi(int i)	
+//void prints(string s)
+
+main(){
+    int a;
+    boolean b;
+    a = getchar();
+    halt();
+    printb(b);
+    printc(a);
+    printi(1);
+    prints("stringg");
+}
+

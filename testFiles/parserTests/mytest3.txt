@@ -1,0 +1,13 @@
+//nested blocks test
+void f(int a, int b, boolean c){
+    {
+        int a;
+        {
+            int b;
+        }
+    }
+    {
+        int c;
+    }
+    return 2+(3+5);
+}

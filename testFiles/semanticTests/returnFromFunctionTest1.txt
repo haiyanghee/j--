@@ -1,0 +1,30 @@
+
+void f(){
+    //if function is void, we don't need a return statement
+}
+void g(){
+    //but we can add one if it's void
+    return;
+}
+int h(){
+    //no return statement, bad
+}
+boolean a(){
+    //expected return bool, not other types
+    int a;
+    return a;
+    return true;
+    return "stringg";
+    return; //need to return a value
+}
+void b(){
+    //expected to not return any value, but we did
+    return 1;
+    if (true)
+        //note in languages like C, return void is allowed since void is not a value?
+        //but the reference compiler doesn't allow that, so we will also error here
+        return b();
+    else
+        return h();
+}
+main(){}

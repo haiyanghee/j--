@@ -1,0 +1,18 @@
+void f(){}
+
+main(){
+    if (true); //this is ok
+    //should error since not a bool
+    if (1);
+    if ("string");
+    if (f());
+
+    //if-else statement is treated the same way
+    //the error message doesn't distinguish whether if the error comes from
+    //if only block, or an if else block. But it can be easily done to do so
+    if (true); else; //this is ok
+    //should error since not a bool
+    if (1); else;
+    if ("string"); else;
+    if (f()); else;
+}

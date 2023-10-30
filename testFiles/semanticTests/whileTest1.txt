@@ -1,0 +1,22 @@
+void f(){}
+main(){
+    //cannot break when not inside a while loop
+    break;
+    {
+        { break;} //bad
+    }
+    if (true) break; //bad
+    if (true) {break;} //bad
+    while(true){
+        break; //ok
+        {
+            break;//ok
+        }
+        while(false) break; //also ok
+    }
+
+    //these should fail
+    while (1);
+    while ("string"); 
+    while (f());
+}

@@ -1,0 +1,45 @@
+void f(){
+    int a1;
+    int a2;
+    int a3;
+    int a4;
+    int a5;
+    int a6;
+    int a7;
+    int a8;
+    int a9;
+    int a10;
+    int a11;
+    int a12;
+    int a13;
+    int a14;
+    int a15;
+    int a16;
+    int a17;
+    int a18;
+    int a19;
+
+    int a;
+    int b;
+    int c;
+
+    int a20;
+    int a21;
+
+    a = 7;
+    b = 3;
+
+    //printi(a);
+    //printi(b);
+
+    c = ( (a+b)+ ( (1+2+3) *  (3+2+(b+a)) )) 
+        +
+        ((1-b) - ( (b+b+3) /  (3+2+(b%a)) ))
+        *
+        ((1-b) - ( (b%a*3) /  (3+2%(b*a)) ))
+        -
+        (( (a%a-3) /  (a+2%(a+1)) ))
+        ;
+    printi(c);
+}
+main(){ }

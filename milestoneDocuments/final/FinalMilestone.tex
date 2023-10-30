@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[a4paper, margin=0.2in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[backend=biber]{biblatex}
+\usepackage{hyperref}
+\usepackage{caption}
+
+\usepackage{verbatim}
+%copied from https://tex.stackexchange.com/questions/309042/how-can-i-redefine-verbatim-to-wrap-lines-add-break-before-or-after-spaces
+\makeatletter
+\newenvironment{myverb}
+ {\def\@xobeysp{\ }\verbatim\rightskip=0pt plus 6em\relax}
+ {\endverbatim}
+\makeatother
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\author{Haiyang He}
+\title{Milestone 3}
+
+\begin{document}
+\maketitle
+\paragraph{Required information}
+    \begin{itemize}
+        \item name: Haiyang He
+        \item UCID: 30067349
+        \item email: haiyang.he@ucalgary.ca
+        \item gitlab repo \url{https://gitlab.cpsc.ucalgary.ca/haiyang.he/cpsc411}
+    \end{itemize}
+
+    The information below is in \texttt{README.md} inside the repo, but we will briefly touch on how to build the project, and where are the test cases.
+
+    You can build the code generation by \texttt{make codegen}, and this should produce a binary file named \texttt{./codegen.out}. Then we can run it by giving it a file name \texttt{./codegen.out <filename>}.
+All of the test cases from Dr. Aycock's reference compiler folder is located at \texttt{./testFiles/finalReferenceTests}. 
+
+
+\end{document}

@@ -1,0 +1,21 @@
+.data
+char: .space 2 # Need 2 because read_string will add a null byte at the end
+
+.text
+main:
+
+li $v0, 8  # System call code for read_string
+la $a0, char # a0 is the address of the space 
+li $a1, 2  # a1 is the max length that needs to be read
+syscall  # Call read_string
+
+lw $a0, char
+li $v0, 1  # Print string — Just a test
+
+#la $a0, char
+#li $v0, 4  # Print string — Just a test
+syscall
+
+li $v0, 10
+syscall
+

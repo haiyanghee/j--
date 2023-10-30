@@ -1,0 +1,25 @@
+void f () {
+myprinter
+    //( 0 , 1 );
+    ( 6 , 3 );
+}
+
+int fkk(int a, int b) {
+    printi(a);
+    return b;
+    printi(b);
+}
+
+
+void myprinter
+    ( int a0
+    , int a1
+    ) {
+
+    printi(fkk(a0,a1));
+    //printi(a0);
+}
+
+main(){
+    f();
+}

@@ -1,0 +1,14 @@
+//multiple redeclarations of variable names on the top level
+int f;
+boolean f;
+void f(){}
+
+//according to the reference compiler, only the name matters for declarations
+//so no function "overloading"
+void g(){}
+
+//there's also no return statement in the 2 functions below
+boolean g(){}
+int g(int f){}
+
+//no main declaration

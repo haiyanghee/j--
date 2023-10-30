@@ -1,0 +1,44 @@
+//test empty/NULL AST structures 
+f(){
+    //  ---------------------
+    //  testing if statements
+    //  ---------------------
+
+    //if statement with empty body
+    if (1);
+
+    //if with non-empty body
+    if (1){
+        int a;
+    }
+    //if and else with both empty bodies
+    if (2);
+    else;
+
+    //if with both empty body but else is non-empty body
+    if (2);
+    else{
+        int b;
+    };
+
+    //if with non-empty body but else with empty body
+    if (3){
+        int c;
+    }
+    else;
+
+    //if and else with non-empty body
+    if (3){
+        int d;
+    }
+    else{
+        int e;
+    }
+
+    //  ---------------------
+    //  testing function invocation
+    //  ---------------------
+    f();
+    f(a,b);
+
+}

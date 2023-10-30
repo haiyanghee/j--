@@ -1,0 +1,4 @@
+//empty if statement condition
+void f(){
+    if ();
+}

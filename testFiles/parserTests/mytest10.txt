@@ -1,0 +1,4 @@
+f(){
+    boolean a
+    what c;
+}

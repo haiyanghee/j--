@@ -1,0 +1,16 @@
+int foo;
+
+int bar(int a, boolean b){
+    a = a + bar(a,b);
+    if (b){
+        while(true)
+        break;
+    }
+    return a;
+}
+
+m(){
+    prints("asdf");
+    bar(1,true);
+    printc(1);
+}

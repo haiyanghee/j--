@@ -1,0 +1,32 @@
+
+main(){
+int i;
+int j;
+
+i=0;
+
+while (i<1){
+    j=i+1;
+    while(j<=2){
+        if(j==1){
+            if (j==1){
+                prints("j = 1\n");
+            }
+            else if(j==2){
+                prints("j = 2\n");
+            }
+        }
+        else if(j==2){
+            //prints("j = 2\n");
+            if (j==1){
+                prints("j = 1\n");
+            }
+            else if(j==2){
+                prints("j = 2\n");
+            }
+        }
+        j=j+1;
+    }
+    i=i+1;
+}
+}

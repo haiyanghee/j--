@@ -1,0 +1,22 @@
+// more basic testings
+int f(int b, boolean c){
+    break;
+    return a+1;
+    return ;
+
+    while(2)
+    while(0)
+    while(-1)
+        2+3;
+        int a;
+    -2;
+    !a;
+
+    while(1)
+        if (b)
+            c=1;
+            break;
+    f(a,b,c);
+    ------4;
+    ------a;
+}

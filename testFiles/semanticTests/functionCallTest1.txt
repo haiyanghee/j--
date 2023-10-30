@@ -1,0 +1,13 @@
+
+void f1(){}
+int f2(int a, boolean b){return 1;}
+boolean f3(boolean a, int b){return true;}
+
+main(){
+    int a;
+    a = f1(); //cannot set void to int
+    f1(a, true); //too many arguments
+    a = f2(true, a); //1st type parameter mismatch
+    a = f2(a, a); //2nd type parameter mismatch
+    a = f2(a, f3()); //too little parameters for f3
+}

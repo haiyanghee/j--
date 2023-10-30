@@ -1,0 +1,106 @@
+//infinite loop
+boolean g(){
+    return g();
+}
+
+boolean h(){
+    return false;
+}
+
+boolean l(){
+    return true;
+}
+
+void f(){
+    int a1;
+    int a2;
+    int a3;
+    int a4;
+    int a5;
+    int a6;
+    int a7;
+    int a8;
+    int a9;
+    int a10;
+    int a11;
+    int a12;
+    int a13;
+    int a14;
+    int a15;
+    int a16;
+    int a17;
+    int a18;
+    int a19;
+
+    int a;
+    int b;
+    int c;
+
+    int a20;
+    int a21;
+
+    a=42;
+    b=69;
+    c=3;
+
+    boolean mybool;
+    boolean mya1;
+    boolean mya2;
+
+    mybool=false;
+
+    mya1 = false;
+    mya2 = true;
+
+    //false && true is false
+    mybool = mya1 && g();
+    printb(mybool);
+    prints("\n");
+
+    //true || _ is true
+    mybool = mya2 || g();
+    printb(mybool);
+    prints("\n");
+
+    //this should be true
+    mybool = (mya1 && g()) || mya2;
+    printb(mybool);
+    prints("\n");
+
+    //this should be false
+    mybool = (mya2 || g()) && mya1;
+    printb(mybool);
+    prints("\n");
+
+    //this should be true
+    mybool = (mya2 || g()) && mya2;
+    printb(mybool);
+    prints("\n");
+
+    //this will be false
+    mybool = ( mya1 = true || g()) && h() == true;
+    printb(mybool);
+    prints("\n");
+
+    //mya1 should be true now
+    printb(mya1);
+    prints("\n");
+
+    //this will be true
+    mybool = (( (mya2 = false) || true) && l()) == true;
+    printb(mybool);
+    prints("\n");
+
+    //mya1 should be false now
+    printb(mya2);
+    prints("\n");
+
+    //should be false
+    mybool = ((-a < b) || g() ) && ((a>b));
+    printb(mybool);
+    prints("\n");
+
+}
+main(){
+    f();
+}

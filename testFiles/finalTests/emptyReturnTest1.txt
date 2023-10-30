@@ -1,0 +1,159 @@
+
+int f(){
+    if(false){
+        return 1;
+    }
+}
+
+int ff(){
+    return 1;
+}
+
+boolean gg(){
+    int a;
+    a=1;
+
+
+    printb( (a == 1 && ( 3 ==4 && 1 == 2)) || (a == ff()));
+    //printb( (a == 1 && ( 3 ==4 && 1 == 2)));
+
+    //printb( (a == 1 && 1 == 2) || a == 3);
+
+    //printb( (a == 1 && 1 == 2));
+
+    //return a == 1 && 1 == 2;
+
+    //printb((a == 1 && ( 3 ==4 && 1 == 2)) || (a == 2));
+    return  (a == 1 && ( 3 ==4 && 1 == 2)) || (a == 2);
+}
+
+boolean g(){
+    return g();
+}
+
+boolean myTrue(){return true;}
+boolean myFalse(){return false;}
+
+main(){
+    //f();
+    //int a;
+    //a=1;
+    //boolean b;
+    //b=true;
+    //boolean c;
+    //c=false;
+
+    ////printb(c && g());
+    ////printb(false && g());
+    ////printb(true || g());
+
+    ////printb(true && (false && g()));
+
+    ////printb((3==4 && g()) && b);
+
+    ////gg();
+    ////printb(gg());
+
+    //boolean mytrue;
+    //boolean myfalse;
+    //mytrue = true;
+    //myfalse = false;
+
+    printb( 
+        myTrue() 
+        && 
+            (
+                (myTrue() && myTrue()) 
+                && 
+                (myFalse() && myTrue())
+            )
+        );
+
+
+    printb( 
+        myFalse() 
+        ||
+            (
+                (myFalse() || myFalse()) 
+                ||
+                (myTrue() || myFalse())
+            )
+        );
+
+    printb( 
+            (
+                myTrue()
+                ||
+                g()
+            )
+        ||
+            (
+                myTrue()
+                ||
+                g()
+            )
+        );
+
+    printb( 
+            (
+                myFalse()
+                &&
+                g()
+            )
+        &&
+            (
+                myFalse()
+                &&
+                g()
+            )
+        );
+
+
+
+
+
+
+
+
+
+
+
+    //printb( 
+    //    true
+    //    && 
+    //        (
+    //            (true && true) 
+    //            && 
+    //            (false && true)
+    //        )
+    //    );
+
+    //printb( myTrue() );
+    //myTrue();
+
+    //printb(
+    //myTrue() 
+    //&& 
+    //    (
+    //        (myFalse())
+    //    )
+    //);
+
+
+    //printb( 
+    //mytrue
+    //&& 
+    //    (
+    //        (myfalse)
+    //    )
+    //);
+
+    //printb( 
+    //true
+    //&& 
+    //    (
+    //        (false)
+    //    )
+    //);
+
+}

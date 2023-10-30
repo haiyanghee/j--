@@ -1,0 +1,70 @@
+main () {
+    f();
+}
+
+
+void f () {
+myprinter
+    ( 0
+    , 1
+    , 2
+    , 3
+    , 4
+    );
+
+myprinter2
+    ( 0
+    , 1
+    , 2
+    , 3
+    );
+}
+
+
+void myprinter
+    ( int a0
+    , int a1
+    , int a2
+    , int a3
+    , int a4
+    ) {
+
+    printi(a0);
+    printi(a1);
+    printi(a2);
+    printi(a3);
+    printi(a4);
+}
+
+
+void myprinter2
+    ( int a0
+    , int a1
+    , int a2
+    , int a3
+    ) {
+
+    printi(a0);
+    printi(a1);
+    printi(a2);
+    printi(a3);
+}
+
+//void f () {
+//myprinter
+//    ( 0 , 1 , 2 , 3);
+//}
+//
+//
+//void myprinter
+//    ( int a0
+//    , int a1
+//    , int a2
+//    , int a3
+//    ) {
+//
+//    printi(a0);
+//    printi(a1);
+//    printi(a2);
+//    printi(a3);
+//}
